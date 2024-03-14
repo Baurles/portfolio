@@ -1,0 +1,100 @@
+$width:100vw;
+$height:5vh;
+
+
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  width: $width;
+  height: $height;
+  background-color: #C7C8CC;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.header{
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:calc($width/4);
+
+}
+
+.logo{
+  font-size: calc($height/1.4);
+  font-family: 'Popins-bold';
+  font-weight: 1000;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+li {
+  cursor: pointer;
+  height: $height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width:1024px){
+  button {
+    border: calc($width/1000)  transparent;
+    border-radius: calc($width/200);
+    background-color: #C7C8CC;
+    min-width: calc($width/18.5);
+    height: calc($height/1.2);
+    font-size: calc($height/2.2);
+    color:white;
+    background: black;
+    font-family: 'Poppins-Medium';
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    white-space: nowrap;
+    cursor: pointer;
+
+  
+  }
+  
+
+  .list {
+    font-family: 'Poppins-Light';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:calc($width/50);
+    font-size: calc($height/2.5);
+  }
+  
+
+}
+
+@media screen and (max-width:1024px){
+  button {
+    border: calc($width/1000)  transparent;
+    border-radius: calc($width/5);
+    background-color: #C7C8CC;
+    min-width: calc($width/18.5);
+    height: calc($height/1.2);
+    font-size: calc($height/2.2);
+    color:white;
+    background: black;
+    font-family: 'Poppins-Medium';
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    white-space: nowrap;
+    cursor: pointer;
+
+  
+  }
+  
+
+  .list {
+    font-family: 'Poppins-Light';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:calc($width/50);
+    font-size: calc($height/2.5);
+    
+  }
+}
