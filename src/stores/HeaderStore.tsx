@@ -1,16 +1,15 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable } from 'mobx';
 
 class HeaderStore {
   isHovered = false;
 
-  constructor(){
-    makeAutoObservable(this)
+  constructor() {
+    makeAutoObservable(this);
   }
 
-  hovered = (value:boolean) => {
+  hovered = (value: boolean) => {
     this.isHovered = value;
-  }
-
+  };
 }
 
 export default new HeaderStore();
