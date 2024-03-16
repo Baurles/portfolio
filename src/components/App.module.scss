@@ -4,5 +4,7 @@
   background-color: vars.$gray1;
   width: 100vw;
   height: 100vh;
-  
+  overflow:auto
+}::-webkit-scrollbar {
+  display: none;
 }

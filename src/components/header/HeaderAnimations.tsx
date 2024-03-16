@@ -13,26 +13,9 @@ const defaultAnimationsLetters = {
   },
 };
 
-const defaultAnimationsPointer = {
-  initial: {
-    opacity: 0,
-  },
-  transition: {
-    duration: 1,
-    delay: 1.5,
-    repeat: Infinity,
-    repeatDelay: 0.5,
-    type: 'twin',
-    ease: 'easeOut',
-  },
-  animate: {
-    opacity: 1,
-  },
-};
-
 export const buttonsHover = {
   scale: 1.05,
-  backgroundColor: 'black',
+  backgroundColor: '#222222',
   color: 'white',
 };
 
@@ -58,15 +41,6 @@ export const SpiningText = () => {
             {char === ' ' ? '\u00A0' : char}
           </motion.span>
         ))}
-      </motion.span>
-
-      <motion.span
-        variants={defaultAnimationsPointer}
-        initial={defaultAnimationsPointer.initial}
-        transition={defaultAnimationsPointer.transition}
-        animate={defaultAnimationsPointer.animate}
-      >
-        |
       </motion.span>
     </motion.h1>
   );

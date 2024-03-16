@@ -10,6 +10,7 @@ export const HeaderLaptop = observer(() => {
   return (
     <div className={HeaderStyle.header}>
       <SpiningText />
+
       <ul className={HeaderStyle.list}>
         <motion.li whileHover={buttonsHover} whileTap={{ scale: 0.95 }}>
           about
