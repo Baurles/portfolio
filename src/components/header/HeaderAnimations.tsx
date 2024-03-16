@@ -30,23 +30,15 @@ const defaultAnimationsPointer = {
   },
 };
 
-const logoHover = {
-  color: '#3A4D39',
-  transition: {
-    duration: 0.3,
-    type: 'tween',
-  },
-};
-
 export const buttonsHover = {
-  scale: 1.1,
+  scale: 1.05,
   backgroundColor: 'black',
   color: 'white',
 };
 
 export const SpiningText = () => {
   return (
-    <motion.h1 className={HeaderStyle.logo} whileHover={logoHover}>
+    <motion.h1 className={HeaderStyle.logo}>
       <span className="sr-only" style={{ display: 'none' }}>
         {text}
       </span>

@@ -1,5 +1,8 @@
+@use './Vars.module.scss' as vars;
+
 .container {
-  background-color: #b4b4b8;
+  background-color: vars.$gray1;
   width: 100vw;
   height: 100vh;
+  
 }

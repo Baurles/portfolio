@@ -55,6 +55,7 @@ button {
   justify-content: center;
   align-items: center;
   gap: calc($width/4);
+  background-color: vars.$black;
 }
 
 .logo {

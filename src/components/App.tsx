@@ -1,14 +1,22 @@
 import React from 'react';
-import { Header } from './header/Header';
+import { HeaderMobile, HeaderLaptop } from './header/Header';
 import './Reset.module.scss';
 import Style from './App.module.scss';
-import { Main } from './Main';
+import { Main } from './Main/Main';
 import './Fonts.module.scss';
+import { useMediaQuery } from 'react-responsive';
 
 export const App = () => {
+  const isLaptop = useMediaQuery({
+    query: '(min-width:1024px)',
+  });
+  const isMobile = useMediaQuery({
+    query: '(max-width:1020px)',
+  });
   return (
     <div className={Style.container}>
-      <Header />
+      {isLaptop && <HeaderLaptop />}
+      {isMobile && <HeaderMobile />}
       <Main />
     </div>
   );

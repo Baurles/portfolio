@@ -1,34 +1,42 @@
 import React from 'react';
 import HeaderStyle from './Header.module.scss';
-import { useMediaQuery } from 'react-responsive';
+import { motion } from 'framer-motion';
+import { buttonsHover } from './HeaderAnimations';
 import { SpiningText } from './HeaderAnimations';
-import { HeaderMobile, HeaderLaptop } from './HeaderAdaptive';
-import HeaderStore from '@/stores/HeaderStore';
+// import HeaderStore from '@/stores/HeaderStore';
 import { observer } from 'mobx-react-lite';
 
-export const Header = observer(() => {
-  const isLaptop = useMediaQuery({
-    query: '(min-width:1024px)',
-  });
-
-  const isMobile = useMediaQuery({
-    query: '(max-width:1024px)',
-  });
-
-  const { isHovered, hovered } = HeaderStore;
-
+export const HeaderLaptop = observer(() => {
   return (
-    <header
-      className={HeaderStyle.container}
-      onMouseOver={() => hovered(true)}
-      onMouseOut={() => hovered(false)}
-    >
-      {isLaptop && <HeaderLaptop />}
+    <div className={HeaderStyle.header}>
+      <SpiningText />
+      <ul className={HeaderStyle.list}>
+        <motion.li whileHover={buttonsHover} whileTap={{ scale: 0.95 }}>
+          about
+        </motion.li>
+        <motion.li whileHover={buttonsHover} whileTap={{ scale: 0.95 }}>
+          services
+        </motion.li>
+        <motion.li whileHover={buttonsHover} whileTap={{ scale: 0.95 }}>
+          projects
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.button
+            whileHover={{ backgroundColor: '#eaeaea', color: 'black' }}
+          >
+            Lets Talk
+          </motion.button>
+        </motion.li>
+      </ul>
+    </div>
+  );
+});
 
-      {isMobile && isHovered && <HeaderMobile />}
-
-      {isMobile && !isHovered && <SpiningText />}
-    </header>
+export const HeaderMobile = observer(() => {
+  return (
+    <div className={HeaderStyle.header}>
+      <SpiningText />
+    </div>
   );
 });
 
