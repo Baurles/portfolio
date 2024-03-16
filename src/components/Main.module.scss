@@ -1,5 +1,42 @@
+@use './Vars.module.scss' as vars;
+
 .container {
+  background-color: vars.$gray1;
   width: 100vw;
   height: 100vh;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: calc(vars.$height/35);
+  padding-left: calc(vars.$width/50);
+}
+
+@media screen and (min-width: 1024px) {
+  .wellcome {
+    color: vars.$backgroundgray;
+    font-family: 'Popins-bold';
+    font-size: clamp(
+      calc(vars.$width/8.6),
+      calc(vars.$width/8.5),
+      calc(vars.$width/8.4)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wellcome {
+    color: vars.$backgroundgray;
+    font-family: 'Popins-bold';
+    font-size: clamp(
+      calc(vars.$width/7.1),
+      calc(vars.$width/7),
+      calc(vars.$width/6.9)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
