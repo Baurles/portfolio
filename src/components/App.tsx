@@ -15,6 +15,7 @@ export const App = () => {
   });
   return (
     <div className={Style.container}>
+      <div className={Style.Background}></div>
       {isLaptop && <HeaderLaptop />}
       {isMobile && <HeaderMobile />}
       <Main />

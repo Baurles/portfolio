@@ -1,10 +1,22 @@
 @use './Vars.module.scss' as vars;
 
 .container {
-  background-color: vars.$gray1;
+
   width: 100vw;
   height: 100vh;
-  overflow:auto
+  overflow:auto;
+  position: relative;
 }::-webkit-scrollbar {
   display: none;
+  
+  
+}
+.Background {
+  background-color: vars.$gray1;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
