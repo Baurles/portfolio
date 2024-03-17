@@ -1,0 +1,83 @@
+@use '../Vars.module.scss' as vars;
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: calc(vars.$height/35);
+  padding-left: calc(vars.$width/50);
+  overflow: auto;
+  position: relative;
+}
+.Background {
+  background-color: vars.$black;
+  z-index: -1;
+  position: absolute;
+  width: 95vw;
+  height: 85vh;
+  border: calc(vars.$width/1000) transparent;
+  border-radius: calc(vars.$width/1000);
+  filter: blur(5rem) grayscale(10);
+}
+
+@media screen and (min-width: 320px) {
+  .wellcome {
+    color: vars.$white;
+    font-family: 'Popins-bold';
+    font-size: clamp(
+      calc(vars.$width/6.1),
+      calc(vars.$width/6),
+      calc(vars.$width/5.9)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: default;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .wellcome {
+    color: vars.$white;
+    font-family: 'Popins-bold';
+    font-size: clamp(
+      calc(vars.$width/6.1),
+      calc(vars.$width/6),
+      calc(vars.$width/5.9)
+    );
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wellcome {
+    color: vars.$white;
+    font-family: 'Popins-bold';
+    font-size: clamp(
+      calc(vars.$width/7.1),
+      calc(vars.$width/7),
+      calc(vars.$width/6.9)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: default;
+  }
+}
+@media screen and (min-width: 2000px) {
+  .wellcome {
+    color: vars.$white;
+    font-family: 'Popins-bold';
+    font-size: clamp(
+      calc(vars.$width/8.9),
+      calc(vars.$width/9),
+      calc(vars.$width/9.1)
+    );
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    justify-content: center;
+  }
+}
