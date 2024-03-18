@@ -23,7 +23,7 @@ export const HeaderLaptop = observer(() => {
         </motion.li>
         <motion.li whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <motion.button
-            whileHover={{ backgroundColor: '#eaeaea', color: 'black' }}
+            whileHover={{ backgroundColor: 'red', color: 'white' }}
           >
             Lets Talk
           </motion.button>

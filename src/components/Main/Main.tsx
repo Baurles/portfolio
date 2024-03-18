@@ -1,7 +1,6 @@
 import React from 'react';
 import MainStyle from './Main.module.scss';
 import { motion } from 'framer-motion';
-import { TextSpan } from './MainAnimation';
 
 const sentenceFrontend = 'FRONTEND';
 const sentenceWeb = 'WEB';
@@ -11,6 +10,7 @@ export const Main = () => {
   return (
     <div className={MainStyle.container}>
       <div className={MainStyle.Background}></div>
+      <div className="point"></div>
       <div className={MainStyle.wellcome}>
         <div className={MainStyle.wellcomeF}>
           {' '}
@@ -19,7 +19,7 @@ export const Main = () => {
               id="target"
               key={index}
               style={{ display: 'inline-block' }}
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.05 }}
             >
               {char === ' ' ? '\u00A0' : char}
             </motion.span>
@@ -32,7 +32,7 @@ export const Main = () => {
               id="target"
               key={index}
               style={{ display: 'inline-block' }}
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.05 }}
             >
               {char === ' ' ? '\u00A0' : char}
             </motion.span>
@@ -45,7 +45,7 @@ export const Main = () => {
               id="target"
               key={index}
               style={{ display: 'inline-block' }}
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.05 }}
             >
               {char === ' ' ? '\u00A0' : char}
             </motion.span>

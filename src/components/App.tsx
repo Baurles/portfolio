@@ -5,6 +5,7 @@ import Style from './App.module.scss';
 import { Main } from './Main/Main';
 import './Fonts.module.scss';
 import { useMediaQuery } from 'react-responsive';
+import { Mouse } from './MouseScroll';
 
 export const App = () => {
   const isLaptop = useMediaQuery({
@@ -19,6 +20,7 @@ export const App = () => {
       {isLaptop && <HeaderLaptop />}
       {isMobile && <HeaderMobile />}
       <Main />
+      {isLaptop && <Mouse />}
     </div>
   );
 };

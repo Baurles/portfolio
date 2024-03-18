@@ -9,20 +9,10 @@
   overflow: auto;
   position: relative;
 }
-.Background {
-  background-color: vars.$black;
-  z-index: -1;
-  position: absolute;
-  width: 95vw;
-  height: 85vh;
-  border: calc(vars.$width/1000) transparent;
-  border-radius: calc(vars.$width/1000);
-  filter: blur(5rem) grayscale(10);
-}
 
 @media screen and (min-width: 320px) {
   .wellcome {
-    color: vars.$white;
+    color: vars.$black;
     font-family: 'Popins-bold';
     font-size: clamp(
       calc(vars.$width/6.1),
@@ -38,7 +28,7 @@
 
 @media screen and (min-width: 1024px) {
   .wellcome {
-    color: vars.$white;
+    color: vars.$black;
     font-family: 'Popins-bold';
     font-size: clamp(
       calc(vars.$width/6.1),
@@ -53,7 +43,7 @@
 }
 @media screen and (min-width: 1440px) {
   .wellcome {
-    color: vars.$white;
+    color: vars.$black;
     font-family: 'Popins-bold';
     font-size: clamp(
       calc(vars.$width/7.1),
@@ -65,10 +55,21 @@
     justify-content: center;
     cursor: default;
   }
+  .wellcomeW {
+    background-color: rgba(255, 255, 255, 0.2);
+    mask-image: url('../../assets/mask2.png');
+    mask-repeat: repeat;
+    mask-size: contain;
+  }
+  .wellcomeD {
+    background-color: red;
+    width: 32vw;
+    color: white;
+  }
 }
 @media screen and (min-width: 2000px) {
   .wellcome {
-    color: vars.$white;
+    color: vars.$black;
     font-family: 'Popins-bold';
     font-size: clamp(
       calc(vars.$width/8.9),
