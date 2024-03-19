@@ -2,6 +2,7 @@ import { makeAutoObservable } from 'mobx';
 
 class HeaderStore {
   isHovered = false;
+  isSticky = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -9,6 +10,9 @@ class HeaderStore {
 
   hovered = (value: boolean) => {
     this.isHovered = value;
+  };
+  sticky = (value: boolean) => {
+    this.isSticky = value;
   };
 }
 

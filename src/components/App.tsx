@@ -6,6 +6,7 @@ import { Main } from './Main/Main';
 import './Fonts.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import { Mouse } from './MouseScroll';
+import { About } from './about/about';
 
 export const App = () => {
   const isLaptop = useMediaQuery({
@@ -14,13 +15,15 @@ export const App = () => {
   const isMobile = useMediaQuery({
     query: '(max-width:1020px)',
   });
+
   return (
     <div className={Style.container}>
       <div className={Style.Background}></div>
       {isLaptop && <HeaderLaptop />}
       {isMobile && <HeaderMobile />}
       <Main />
-      {isLaptop && <Mouse />}
+      <About />
+      {/* {isLaptop && <Mouse />} */}
     </div>
   );
 };

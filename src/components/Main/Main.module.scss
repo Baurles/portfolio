@@ -4,13 +4,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-top: calc(vars.$height/35);
+  padding-top: calc(vars.$height/34);
+  padding-bottom: calc(vars.$height/12);
   padding-left: calc(vars.$width/50);
-  overflow: auto;
-  position: relative;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 1024px) {
   .wellcome {
     color: vars.$black;
     font-family: 'Popins-bold';
@@ -24,9 +23,20 @@
     justify-content: center;
     cursor: default;
   }
+  .wellcomeW {
+    background-color: rgba(255, 255, 255, 0.2);
+    mask-image: url('../../assets/mask2.png');
+    mask-repeat: repeat;
+    mask-size: contain;
+  }
+  .wellcomeD {
+    background-color: red;
+    width: 37vw;
+    color: white;
+  }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
   .wellcome {
     color: vars.$black;
     font-family: 'Popins-bold';
@@ -40,8 +50,19 @@
     cursor: default;
     justify-content: center;
   }
+  .wellcomeW {
+    background-color: rgba(255, 255, 255, 0.2);
+    mask-image: url('../../assets/mask2.png');
+    mask-repeat: repeat;
+    mask-size: contain;
+  }
+  .wellcomeD {
+    background-color: red;
+    width: 35vw;
+    color: white;
+  }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
   .wellcome {
     color: vars.$black;
     font-family: 'Popins-bold';
@@ -67,7 +88,7 @@
     color: white;
   }
 }
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 2560px) {
   .wellcome {
     color: vars.$black;
     font-family: 'Popins-bold';
@@ -80,5 +101,17 @@
     flex-direction: column;
     cursor: default;
     justify-content: center;
+
+    .wellcomeW {
+      background-color: rgba(255, 255, 255, 0.2);
+      mask-image: url('../../assets/mask2.png');
+      mask-repeat: repeat;
+      mask-size: contain;
+    }
+    .wellcomeD {
+      background-color: red;
+      width: 25vw;
+      color: white;
+    }
   }
 }

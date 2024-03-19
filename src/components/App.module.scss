@@ -1,10 +1,9 @@
 @use './Vars.module.scss' as vars;
 
 .container {
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -16,11 +15,11 @@
   top: 0px;
   z-index: -1;
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   background-image: radial-gradient(
     50% 50% at 50% 50%,
     rgb(208, 208, 208) 0%,
-    rgb(104,104, 104) 100%
+    rgb(104, 104, 104) 100%
   );
 
   overflow: hidden;
