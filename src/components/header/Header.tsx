@@ -8,17 +8,6 @@ import HeaderStore from '@/stores/HeaderStore';
 import { observer } from 'mobx-react-lite';
 
 export const HeaderLaptop = observer(() => {
-  const { sticky } = HeaderStore;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      sticky(true);
-      console.log(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }); /////Исправить, имя класса не меняется какого то xуя. Для стики
-
   return (
     <motion.div className={HeaderStyle.header}>
       <SpiningText />

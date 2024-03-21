@@ -89,13 +89,14 @@
   }
 }
 @media screen and (min-width: 2560px) {
+  
   .wellcome {
     color: vars.$black;
     font-family: 'Popins-bold';
     font-size: clamp(
-      calc(vars.$width/8.9),
-      calc(vars.$width/9),
-      calc(vars.$width/9.1)
+      calc(vars.$width/9.9),
+      calc(vars.$width/10),
+      calc(vars.$width/10.1)
     );
     display: flex;
     flex-direction: column;

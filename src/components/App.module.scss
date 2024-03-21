@@ -26,9 +26,7 @@
   mask-image: url('../assets/mask.png');
   mask-repeat: repeat;
   mask-size: cover;
-}
-
-::before {
+}::before {
   content: '';
   position: absolute;
   top: 0;
@@ -38,3 +36,5 @@
   background-color: rgba(0 0 0 / 0.001);
   z-index: -2;
 }
+
+
