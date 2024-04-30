@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { HeaderProvider } from "@/providers/Header-provider";
+import { Aura } from "@/components/MainPage/Aura";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
+        <Aura />
         <HeaderProvider />
         {children}
       </body>

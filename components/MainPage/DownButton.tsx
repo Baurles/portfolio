@@ -1,34 +1,45 @@
 "use client";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { motion } from "framer-motion";
+import { observer } from "mobx-react";
+import MainPageStore from "@/stores/mainPage-store";
+import { useEffect } from "react";
 
-export default function DownButton() {
-  const bounce = {
-    duration: 1.2,
-    ease: bounceEase,
-  };
+export const DownButton = observer(() => {
+  const Store = MainPageStore;
 
-  function bounceEase(x: number) {
-    const n1 = 7.5625;
-    const d1 = 2.75;
-
-    if (x < 1 / d1) {
-      return n1 * x * x;
-    } else if (x < 2 / d1) {
-      return n1 * (x -= 1.5 / d1) * x + 0.75;
-    } else if (x < 2.5 / d1) {
-      return n1 * (x -= 2.25 / d1) * x + 0.9375;
-    } else {
-      return n1 * (x -= 2.625 / d1) * x + 0.984375;
+  useEffect(() => {
+    function setVisible() {
+      if (window.scrollY <= 100) {
+        Store.setArrowVisible(true);
+      } else {
+        Store.setArrowVisible(false);
+      }
     }
-  }
-  /////Анимация   https://codesandbox.io/p/sandbox/framer-motion-custom-easing-function-1181n?file=%2Fsrc%2FApp.js%3A31%2C3
+
+    window.addEventListener("scroll", setVisible);
+
+    return () => {
+      window.removeEventListener("scroll", setVisible);
+    };
+  }, []); ///Починить баг с отображением на первом рендере
+
   return (
     <motion.div
-      animate={{ x: -20 }}
-      transition={(bounce, { repeat: Infinity })}
+      animate={{ opacity: Store.arrowState ? 1 : 0 }}
+      transition={{ duration: 0.2, type: "tween" }}
     >
-      <MdKeyboardDoubleArrowDown size={50} color="black" />;
+      <motion.div
+        animate={{ y: -20 }}
+        initial={{ y: -30 }}
+        transition={{ repeat: Infinity, delay: 1.5, duration: 2 }}
+      >
+        <MdKeyboardDoubleArrowDown
+          className="cursor-poitner"
+          size={50}
+          color="white"
+        />
+      </motion.div>
     </motion.div>
   );
-}
+});

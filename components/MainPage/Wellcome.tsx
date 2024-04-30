@@ -3,8 +3,13 @@ import { motion } from "framer-motion";
 
 export default function Wellcome() {
   return (
-    <div className="text-black flex items-end text-7xl font-extrabold">
-      <h2>
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="text-white   flex items-end text-7xl font-extrabold"
+    >
+      <h2 className="cursor-default">
         Hello,
         <br />
         Im a frontend dev
@@ -22,6 +27,6 @@ export default function Wellcome() {
       >
         |
       </motion.span>
-    </div>
+    </motion.div>
   );
 }

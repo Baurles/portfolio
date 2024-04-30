@@ -1,14 +1,27 @@
 import Wellcome from "@/components/MainPage/Wellcome";
 import Container from "@/components/Container";
-import { MdKeyboardDoubleArrowDown } from "react-icons/md";
-
+import { DownButton } from "@/components/MainPage/DownButton";
+import Marquee from "@/components/MainPage/Marquee";
+import Hero from "@/components/MainPage/Hero";
 export default function Home() {
+  const boilerPlateMarquee =
+    "Typescript React.js Tailwind Next.js Scss Mobx/Redux Typescript React.js Tailwind Next.js Scss Mobx/Redux";
   return (
-    <main className="flex bg-white h-[200vh] flex-col items-center justify-start ">
+    <main className="flex snap-y snap-mandatory overflow-scroll h-[200vh] flex-col items-center justify-start ">
       <Container>
+        <Marquee y={"98vh"} direction="left" deg={"3deg"}>
+          {boilerPlateMarquee}
+        </Marquee>
+
+        <Marquee y={"-96vh"} direction="right" deg={"-6deg"}>
+          {boilerPlateMarquee}
+        </Marquee>
         <Wellcome />
       </Container>
-      <MdKeyboardDoubleArrowDown size={50} color="black" />
+      <DownButton />
+      <Container>
+        <Hero />
+      </Container>
     </main>
   );
 }
