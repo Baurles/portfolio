@@ -25,8 +25,11 @@ export const HeaderProvider = observer(() => {
 
   return (
     <motion.div
+      initial={{ opacity: 0 }}
       className="container"
-      animate={{ opacity: Store.headerState ? 1 : 0 }}
+      animate={{
+        opacity: Store.headerState ? 1 : 0,
+      }}
       transition={{ duration: 0.2, type: "tween" }}
     >
       <Header />

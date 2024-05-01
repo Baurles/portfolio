@@ -1,16 +1,24 @@
 "use client";
 import { animate, motion, stagger, useAnimate } from "framer-motion";
+import MainPageStore from "@/stores/mainPage-store";
+import { observer } from "mobx-react";
+import { animatePageOut } from "@/utils/pageSwitch";
+import { useRouter } from "next/navigation";
+
+const Store = MainPageStore;
 
 type AnimationSequence = Parameters<typeof animate>[0];
 
-export default function GoButton() {
+export const GoButton = observer(({ word }: { word: string }) => {
   const [scope, animate] = useAnimate();
   const randomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-  const btnWord = "Погнали!".split("");
+  const btnWord = word.split("");
 
+  const router = useRouter();
   const onBtnClick = () => {
+    Store.setGoButtonStateTrue(true);
     const sparkles = Array.from({ length: 20 });
     const sparklesAnimation: AnimationSequence = sparkles.map((_, index) => [
       `.sparkle-${index}`,
@@ -58,6 +66,11 @@ export default function GoButton() {
       [".btnLetter", { y: 0 }, { duration: 0.0000001 }],
       ...sparklesOut,
     ]);
+
+    setTimeout(animatePageOut, 800);
+    setTimeout(() => {
+      router.push("/easy");
+    }, 1500);
   };
   return (
     <motion.div
@@ -65,7 +78,7 @@ export default function GoButton() {
       id="gobtn"
       onClick={onBtnClick}
       ref={scope}
-      className="text-white flex cursor-default relative text-2xl justify-center items-center font-bold bg-black rounded-lg w-48 h-20"
+      className="text-white flex cursor-default relative text-lg justify-center items-center font-bold bg-black rounded-lg w-48 h-20"
     >
       <span className="sr-only">Погнали!</span>
       <span className="block h-8 overflow-hidden" aria-hidden>
@@ -75,7 +88,7 @@ export default function GoButton() {
             className="btnLetter relative leading-8 inline-block h-8 after:h-8 after:absolute after:left-0 after:top-full after:text-white after:content-[attr(data-letter)]"
             key={`${letter}-${index}`}
           >
-            {letter}
+            {letter === " " ? "\u00A0" : letter}
           </span>
         ))}
       </span>
@@ -100,4 +113,4 @@ export default function GoButton() {
       </span>
     </motion.div>
   );
-}
+});

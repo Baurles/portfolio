@@ -2,7 +2,7 @@
 import { motion, stagger, useAnimate } from "framer-motion";
 import Image from "next/image";
 import Me from "@/public/assets/me.jpg";
-import GoButton from "../ui/GoButton";
+import { GoButton } from "../ui/GoButton";
 
 function Face() {
   return (
@@ -95,14 +95,14 @@ export default function Hero() {
     <motion.div
       onViewportEnter={handleAnimate}
       initial={{ opacity: 0 }}
-      className="bg-white p-4 flex flex-col w-full h-full justify-between items-center rounded-lg"
+      className="bg-white border-2 border-black p-4 flex flex-col w-full h-full justify-between items-center rounded-lg"
       ref={scope}
     >
       <div className="flex justify-between self-start ">
         <Face />
         <TextBlock />
       </div>
-      <GoButton />
+      <GoButton word={"Погнали!"} />
     </motion.div>
   );
 }

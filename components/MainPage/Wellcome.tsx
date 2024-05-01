@@ -6,7 +6,7 @@ export default function Wellcome() {
     <motion.div
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
       className="text-white   flex items-end text-7xl font-extrabold"
     >
       <h2 className="cursor-default">
