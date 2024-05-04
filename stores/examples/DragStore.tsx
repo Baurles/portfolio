@@ -9,34 +9,62 @@ export interface cardProps {
 }
 
 class Store {
-  cardList = [
-    { id: 0, order: 1, text: "Карточка 1" },
-    { id: 1, order: 2, text: "Карточка 2" },
-    { id: 2, order: 3, text: "Карточка 3" },
-    { id: 3, order: 4, text: "Карточка 4" },
+  boardList = [
+    {
+      id: 1,
+      title: "Задачи",
+      items: [
+        { id: 0, order: 1, text: "Карточка 1" },
+        { id: 1, order: 2, text: "Карточка 2" },
+        { id: 2, order: 3, text: "Карточка 3" },
+        { id: 3, order: 4, text: "Карточка 4" },
+      ],
+    },
+    {
+      id: 2,
+      title: "На ревью",
+      items: [
+        { id: 0, order: 1, text: "Карточка 1" },
+        { id: 1, order: 2, text: "Карточка 2" },
+        { id: 2, order: 3, text: "Карточка 3" },
+      ],
+    },
+    {
+      id: 3,
+      title: "Правки",
+      items: [
+        { id: 0, order: 1, text: "Карточка 1" },
+        { id: 1, order: 2, text: "Карточка 2" },
+      ],
+    },
+    {
+      id: 4,
+      title: "Выполнено",
+      items: [{ id: 0, order: 1, text: "Карточка 1" }],
+    },
   ];
-  currentCard: cardProps = { id: 0, order: 0, text: "" };
+  currentItem = null;
+  currentBoard = null;
 
   constructor() {
     makeAutoObservable(this);
   }
-  setCardList(card: cardProps) {
-    this.cardList = this.cardList
-      .map((c) => {
-        if (c.id === card.id) {
-          return { ...c, order: this.currentCard.order };
-        }
-        if (c.id === this.currentCard.id) {
-          return { ...c, order: card.order };
-        }
-        return c;
-      })
-      .sort((a, b) => (a.order > b.order ? 1 : -1));
+  setBoardList(board) {
+    this.boardList.map((b) => {
+      if (b.id === board.id) {
+        return board;
+      }
+      if (b.id === this.currentBoard.id) {
+        return this.currentBoard;
+      }
+      return b;
+    });
   }
-  setCurrentCard(card: cardProps) {
-    if (this.currentCard !== null) {
-      this.currentCard = card;
-    }
+  setCurrentItem(item) {
+    this.currentItem = item;
+  }
+  setCurrentBoard(board) {
+    this.currentBoard = board;
   }
 }
 
