@@ -2,12 +2,16 @@
 
 import { makeAutoObservable } from "mobx";
 
-export interface cardProps {
+export interface itemProps {
   id: number;
   order: number;
   text: string;
 }
-
+export interface boardProps {
+  id: number;
+  title: string;
+  items: itemProps[];
+}
 class Store {
   boardList = [
     {
@@ -43,13 +47,18 @@ class Store {
       items: [{ id: 0, order: 1, text: "Карточка 1" }],
     },
   ];
-  currentItem = null;
-  currentBoard = null;
+  currentItem: itemProps = { id: 0, order: 0, text: "" };
+
+  currentBoard: boardProps = {
+    id: 0,
+    title: "",
+    items: [],
+  };
 
   constructor() {
     makeAutoObservable(this);
   }
-  setBoardList(board) {
+  setBoardList(board: boardProps) {
     this.boardList.map((b) => {
       if (b.id === board.id) {
         return board;
@@ -60,10 +69,10 @@ class Store {
       return b;
     });
   }
-  setCurrentItem(item) {
+  setCurrentItem(item: itemProps) {
     this.currentItem = item;
   }
-  setCurrentBoard(board) {
+  setCurrentBoard(board: boardProps) {
     this.currentBoard = board;
   }
 }

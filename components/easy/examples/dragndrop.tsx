@@ -3,21 +3,26 @@
 import { FaGithub } from "react-icons/fa";
 import DragStore from "@/stores/examples/DragStore";
 import { observer } from "mobx-react";
-import { cardProps } from "@/stores/examples/DragStore";
+
+import { itemProps, boardProps } from "@/stores/examples/DragStore";
 
 const Store = DragStore;
 
 export const DragNDrop = observer(() => {
-  function handleDragOver(e) {
+  function handleDragOver(e: React.DragEvent) {
     e.preventDefault();
   }
-  function handleDragLeave(e) {}
-  function handleDragStart(e, board, item) {
+  function handleDragLeave(e: React.DragEvent) {}
+  function handleDragStart(
+    e: React.DragEvent,
+    board: boardProps,
+    item: itemProps,
+  ) {
     Store.setCurrentBoard(board);
     Store.setCurrentItem(item);
   }
-  function handleDragEnd(e) {}
-  function handleDrop(e, board, item) {
+  function handleDragEnd(e: React.DragEvent) {}
+  function handleDrop(e: React.DragEvent, board: boardProps, item: itemProps) {
     e.preventDefault();
     const currentIndex = Store.currentBoard.items.indexOf(Store.currentItem);
     Store.currentBoard.items.splice(currentIndex, 1);
@@ -25,6 +30,12 @@ export const DragNDrop = observer(() => {
     const droptIndex = board.items.indexOf(item);
     board.items.splice(droptIndex + 1, 0, Store.currentItem);
 
+    Store.setBoardList(board);
+  }
+
+  function dropItemHandler(e: React.DragEvent, board: boardProps) {
+    const currentIndex = Store.currentBoard.items.indexOf(Store.currentItem);
+    Store.currentBoard.items.splice(currentIndex, 1);
     Store.setBoardList(board);
   }
   return (
@@ -69,33 +80,5 @@ export const DragNDrop = observer(() => {
         <FaGithub size={50} />
       </div>
     </div>
-  );
-});
-
-const InnerList = observer(() => {
-  function handleDragStart(
-    e: React.DragEvent<HTMLDivElement>,
-    card: cardProps,
-  ) {
-    Store.setCurrentCard(card);
-  }
-  function handleDragLeave(e: React.DragEvent<HTMLDivElement>) {
-    (e.target as HTMLDivElement).style.background = "white";
-  }
-  function handleDragEnd(e: React.DragEvent<HTMLDivElement>) {
-    (e.target as HTMLDivElement).style.background = "white";
-  }
-  function handleDragOver(e: React.DragEvent<HTMLDivElement>) {
-    e.preventDefault();
-    (e.target as HTMLDivElement).style.background = "lightgray";
-  }
-  function handleDrop(e: React.DragEvent<HTMLDivElement>, card: cardProps) {
-    e.preventDefault();
-    (e.target as HTMLDivElement).style.background = "white";
-    Store.setCardList(card);
-  }
-
-  return (
-    <div className="h-3/4 border-2 gap-2 p-2 justify-center items-center border-black flex flex-col w-1/4"></div>
   );
 });
