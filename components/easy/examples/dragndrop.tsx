@@ -13,18 +13,26 @@ export const DragNDrop = () => {
   return (
     <article className="min-w-full text-black max-w-full flex h-full rounded-lg border-2 border-black">
       <section className="w-4/6 h-full flex-col flex justify-between p-4 items-center border-r-2 border-black ">
-        <h2 className="text-lg font-bold">Аналог Kanban-доски</h2>
-        <BoardsnCards />
+        <h2 className="cursor-default text-lg font-bold">
+          Аналог Kanban-доски
+        </h2>
         <p>
           Можете подёргать ячейки списков, как внутри, так из одного в другой
         </p>
+        <BoardsnCards />
+        <AddItem />
       </section>
       <section className="w-2/6 gap-10 pt-2 justify-center h-full flex flex-col items-center ">
         <h2 className="font-bold text-2xl">
           TODO с <strong>Drag-n-Drop</strong>
         </h2>
         <p>Простой пример реализации Драг-н-Дропа в ТуДу листе</p>
-        <FaGithub size={50} />
+        <motion.a
+          whileHover={{ scale: 1.1 }}
+          href="https://github.com/Baurles/portfolio/blob/main/components/easy/examples/dragndrop.tsx"
+        >
+          <FaGithub size={50} />
+        </motion.a>
       </section>
     </article>
   );
@@ -124,7 +132,7 @@ const BoardsnCards = observer(() => {
           onDrop={(e) => dropItemHandler(e, board)}
           className="board flex flex-col rounded-lg w-1/4 h-3/4 border-2 border-black items-center justify-start gap-8 p-2"
         >
-          <h2 className="border-b-black border-b-4 w-full flex justify-center items-center font-bold text-lg">
+          <h2 className="cursor-default border-b-black border-b-4 w-full flex justify-center items-center font-bold text-lg">
             {board.title}
           </h2>
           <div className="flex flex-col h-3/4 overflow-scroll gap-2 w-40 rounded-lg border-black border-2 p-2 items-center justify-start ">
@@ -156,3 +164,12 @@ const BoardsnCards = observer(() => {
     </div>
   );
 });
+
+function AddItem() {
+  return (
+    <section className="flex gap-2 flex-col justify-center items-center">
+      <p>Добавь разрабам страшную задачу!</p>
+      <input className="w-48 h-10 text-center border-black border-2 rounded-lg" />
+    </section>
+  );
+}

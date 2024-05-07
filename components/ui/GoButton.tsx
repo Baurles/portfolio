@@ -73,7 +73,7 @@ export const GoButton = observer(({ word }: { word: string }) => {
     }, 1500);
   };
   return (
-    <motion.div
+    <motion.button
       initial={{ opacity: 0 }}
       id="gobtn"
       onClick={onBtnClick}
@@ -111,6 +111,6 @@ export const GoButton = observer(({ word }: { word: string }) => {
           </svg>
         ))}
       </span>
-    </motion.div>
+    </motion.button>
   );
 });

@@ -1,7 +1,8 @@
 import Container from "@/components/Container";
 import { Spinner } from "@/components/easy/Spinner";
 import { EasyPageView } from "@/components/easy/easyPageView";
-import { TODO } from "@/components/easy/examples/TODO";
+import { Weather } from "@/components/easy/examples/Weather";
+
 import { DragNDrop } from "@/components/easy/examples/dragndrop";
 import { TikTacToe } from "@/components/easy/examples/tickTackToe";
 export default function Easy() {
@@ -11,7 +12,7 @@ export default function Easy() {
         <EasyPageView>
           <Spinner>
             <DragNDrop />
-            <TODO />
+            <Weather />
             <TikTacToe />
           </Spinner>
         </EasyPageView>

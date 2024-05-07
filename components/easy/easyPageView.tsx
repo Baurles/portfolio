@@ -1,6 +1,5 @@
 "use client";
 
-import { GoButton } from "../ui/GoButton";
 import { animate } from "framer-motion";
 import EasyStore from "@/stores/easyStore";
 import { observer } from "mobx-react";
