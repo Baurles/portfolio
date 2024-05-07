@@ -52,7 +52,14 @@ function TextBlock() {
   ];
 
   return (
-    <div className="pl-4 flex-col justify-start gap-40 flex">
+    <section className="pl-4 flex-col justify-start gap-40 flex">
+      <h2 className="sr-only">Артём - фронтенд разработчик</h2>
+      <p className="sr-only">
+        Приветствую Вас! Я <strong>Артём - фронтенд разработчик</strong>из г.
+        Санкт-Петербург. В рамках своего портфолио я хочу познакомить Вас со
+        своими работами и помочь Вам определить мой уровень. На текущий момент
+        мой стек это:
+      </p>
       <div className="flex flex-col gap-10 ">
         <Message text={textHey[0]} />
         <Message text={textHey[1]} />
@@ -73,7 +80,7 @@ function TextBlock() {
           <li>framer-motion</li>
         </motion.ul>
       </div>
-    </div>
+    </section>
   );
 }
 

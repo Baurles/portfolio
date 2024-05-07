@@ -12,7 +12,7 @@ export default function Wellcome() {
       <h2 className="cursor-default">
         Hello,
         <br />
-        Im a frontend dev
+        Im a <strong>frontend dev</strong>
       </h2>
       <motion.span
         animate={{ opacity: 1 }}

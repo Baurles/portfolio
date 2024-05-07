@@ -14,7 +14,7 @@ function Btn({ children, href }: { children: React.ReactNode; href: string }) {
 
 export default function HeaderBtns() {
   return (
-    <div className="flex gap-10">
+    <nav className="flex gap-10">
       <Btn href={"https://github.com/Baurles"}>
         <FaGithub color="black" size={25} />
       </Btn>
@@ -28,6 +28,6 @@ export default function HeaderBtns() {
       >
         <RiFileList3Line className="cursor-pointer" color="black" size={25} />{" "}
       </Btn>
-    </div>
+    </nav>
   );
 }
